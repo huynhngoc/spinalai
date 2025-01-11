@@ -57,11 +57,11 @@ python experiment.py config/local/soft_tissue_lr001.json P:/SpinalAI/test_perf -
 
 ## Running the experiments on Orion
 ```
-sbatch slurm_run_experiment.sh config/soft_tissue_lr001_f012.json soft_tissue_lr001_f012 --epoch 60
+sbatch slurm_run_experiment.sh config/soft_tissue_lr001_f012.json soft_tissue_lr001_f012 60
 ```
 
 This will run the experiment based on the `config/soft_tissue_lr001_f012.json` configuration for 60 epochs, and save the data to the `soft_tissue_lr001_f012` in the `../perf` folder. By default, models and predictions are saved every 5 epochs. To change that, you can add other options using
 
 ```
-sbatch slurm_run_experiment.sh config/soft_tissue_lr001_f012.json soft_tissue_lr001_f012 --epoch 60 --model_checkpoint_period 1 --prediction_checkpoint_period 1
+sbatch slurm_run_experiment.sh config/soft_tissue_lr001_f012.json soft_tissue_lr001_f012 60 --model_checkpoint_period 1 --prediction_checkpoint_period 1
 ```

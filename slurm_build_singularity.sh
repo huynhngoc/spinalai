@@ -7,9 +7,10 @@
 #SBATCH --constraint=avx2
 #SBATCH --mail-user=$USER@nmbu.no # Email me when job is done.
 #SBATCH --mail-type=FAIL
-#SBATCH --output=outputs/run_python-%A.out
-#SBATCH --error=outputs/run_python-%A.out
+#SBATCH --output=outputs/singularity-%A.out
+#SBATCH --error=outputs/singularity-%A.out
 
 module load singularity
 
 singularity build --fakeroot $1 $2
+chmod 2775 $1

@@ -93,9 +93,9 @@ if __name__ == '__main__':
             targets = []
 
             for patient_id in fold:
-                image_slices = load_image(patient_id)
+                image_slices = load_image(patient_id, nifti_folder)
                 print(image_slices.shape)
-                target_slices = load_target(patient_id)
+                target_slices = load_target(patient_id, nifti_folder)
                 print(target_slices.shape)
 
                 padded_image_slices, padded_target_slices = pad_image(

@@ -2,3 +2,8 @@ numpy
 pandas
 deoxys
 deoxys-vis
+tensorflow
+tensorflow-addons
+matplotlib
+numpy
+ray

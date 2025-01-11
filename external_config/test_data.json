@@ -1,0 +1,9 @@
+{
+    "config": {
+        "filename": "/path/to/new/file.h5",
+        "test_folds": [
+            0,
+            1
+        ]
+    }
+}

@@ -14,8 +14,8 @@
     "dataset_params": {
         "class_name": "H5Reader",
         "config": {
-            "filename": "P:/SpinalAI/datasets/spinal_soft_tissue_cropped.h5",
-            "batch_size": 2,
+            "filename": "../datasets/spinal_soft_tissue_cropped.h5",
+            "batch_size": 16,
             "x_name": "image",
             "y_name": "target",
             "batch_cache": 10,

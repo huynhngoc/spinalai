@@ -82,8 +82,8 @@ with h5py.File(h5_filename, 'w') as h5_file:
             num_slices = image_slices.shape[0]
             patient_indices.extend([patient_id] * num_slices)
             slice_indices.extend(list(range(num_slices)))
-            images.append(padded_image_slices)
-            targets.append(padded_target_slices)
+            images.append(padded_image_slices[..., np.newaxis])
+            targets.append(padded_target_slices[..., np.newaxis])
 
         images = np.concatenate(images, axis=0)
         targets = np.concatenate(targets, axis=0)
@@ -91,7 +91,7 @@ with h5py.File(h5_filename, 'w') as h5_file:
         group.create_dataset('patient_idx', data=np.array(patient_indices))
         group.create_dataset('slice_idx', data=np.array(slice_indices))
         group.create_dataset('image', data=images, dtype=np.float32)
-        group.create_dataset('target', data=targets)
+        group.create_dataset('target', data=targets, dtype=np.float32)
 
 
 def print_h5_file_structure(file_path):

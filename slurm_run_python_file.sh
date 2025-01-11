@@ -17,7 +17,4 @@
 module load singularity
 
 
-# Hack to ensure that the GPUs work
-nvidia-modprobe -u -c=0
-
 singularity exec --nv deoxys.sif python $1 ${@:2}

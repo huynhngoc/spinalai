@@ -78,8 +78,8 @@ if __name__ == '__main__':
 
     nifti_folder = args.nifti_folder
     h5_filename = args.h5_filename
-    size_0 = argparse.size_0
-    size_1 = argparse.size_1
+    size_0 = args.size_0
+    size_1 = args.size_1
 
     folds = create_folds()
 

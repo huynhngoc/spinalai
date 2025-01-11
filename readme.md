@@ -38,3 +38,11 @@ According the the python file, this script will browse the folder with the name 
 ```
 sbatch slurm_run_python_file.sh data_gen/generate_h5_file.py --nifti_folder ../cropped_nifti_by_soft_tissue_window --h5_filename ../datasets/spinal_soft_tissue_cropped.h5 --size_0 512 --size_1 512
 ```
+
+This script takes 4 arguments (parameters):
+- The path to the cropped nifti folder (`nifti_folder`)
+- The path and filename to the output h5 file (`h5_filename`)
+- The size of the x axis `size_0`
+- The size of the y axis `size_1`
+
+Actually, the last two arguments are set to 512 by default, so you can skip them.

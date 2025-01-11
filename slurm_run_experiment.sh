@@ -1,15 +1,15 @@
 #!/bin/bash
-# SBATCH --ntasks=1               # 1 core(CPU)
-# SBATCH --nodes=1                # Use 1 node
-# SBATCH --job-name=SpinalAI_run   # sensible name for the job
-# SBATCH --mem=64G                 # Default memory per CPU is 3GB.
-# SBATCH --partition=gpu        # Use the GPU partition
-# SBATCH --gres=gpu:1       # Request 1 GPU "generic resource"
-# SBATCH --cpus-per-task=16
-# SBATCH --mail-user=$USER@nmbu.no # Email me when job is done.
-# SBATCH --mail-type=ALL
-# SBATCH --output=outputs/unet-%A.out
-# SBATCH --error=outputs/unet-%A.out
+#SBATCH --ntasks=1               # 1 core(CPU)
+#SBATCH --nodes=1                # Use 1 node
+#SBATCH --job-name=SpinalAI_unet   # sensible name for the job
+#SBATCH --mem=64G                 # Default memory per CPU is 3GB.
+#SBATCH --partition=gpu        # Use the GPU partition
+#SBATCH --gres=gpu:1       # Request 1 GPU "generic resource"
+#SBATCH --cpus-per-task=16
+#SBATCH --mail-user=$USER@nmbu.no # Email me when job is done.
+#SBATCH --mail-type=ALL
+#SBATCH --output=outputs/unet-%A.out
+#SBATCH --error=outputs/unet-%A.out
 
 # If you would like to use more please adjust this.
 
@@ -54,4 +54,4 @@ nvidia-modprobe -u -c=0
 export MAX_SAVE_STEP_GB=0
 export NUM_CPUS=4
 export RAY_ROOT=$TMPDIR/$USER/ray
-singularity exec --nv deoxys.sif python experiment.py $1 $PROJECTS/ngoc/SpinalAI/perf/$2 - -temp_folder $SCRATCH_PROJECTS/ceheads/SpinalAI/perf/$2 --analysis_folder $SCRATCH/analysis/$2 --epochs $3 ${@: 4}
+singularity exec --nv deoxys.sif python experiment.py $1 $PROJECTS/ngoc/SpinalAI/perf/$2 --temp_folder $SCRATCH_PROJECTS/ceheads/SpinalAI/perf/$2 --analysis_folder $SCRATCH/analysis/$2 --epochs $3 ${@: 4}

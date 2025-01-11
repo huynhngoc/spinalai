@@ -10,14 +10,6 @@
 #SBATCH --output=outputs/run_python-%A.out
 #SBATCH --error=outputs/run_python-%A.out
 
-# If you would like to use more please adjust this.
-
-## Below you can put your scripts
-# If you want to load module
 module load singularity
 
-
-# Hack to ensure that the GPUs work
-nvidia-modprobe -u -c=0
-
-singularity exec --nv deoxys.sif python $1 ${@:2}
+singularity build --fakeroot $1 $2

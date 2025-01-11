@@ -12,7 +12,7 @@ Stage: build
     pip install scikit-learn
     pip install mypy
     pip install nptyping
-    pip install ray
+    pip install ray==2.9.3
     pip install elasticdeform
     pip install lifelines
     pip install scikit-survival

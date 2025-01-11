@@ -53,5 +53,5 @@ nvidia-modprobe -u -c=0
 # export ITER_PER_EPOCH=200
 export MAX_SAVE_STEP_GB=0
 export NUM_CPUS=4
-export RAY_ROOT =$TMPDIR/ray
-singularity exec - -nv deoxys.sif python experiment.py $1 $PROJECTS/ngoc/SpinalAI/perf/$2 - -temp_folder $SCRATCH_PROJECTS/ceheads/SpinalAI/perf/$2 --analysis_folder $SCRATCH/analysis/$2 --epochs $3 ${@: 4}
+export RAY_ROOT=$TMPDIR/$USER/ray
+singularity exec --nv deoxys.sif python experiment.py $1 $PROJECTS/ngoc/SpinalAI/perf/$2 - -temp_folder $SCRATCH_PROJECTS/ceheads/SpinalAI/perf/$2 --analysis_folder $SCRATCH/analysis/$2 --epochs $3 ${@: 4}

@@ -53,7 +53,7 @@ if __name__ == '__main__':
           'and saving log files to', args.log_folder)
     print('Unprocesssed prediciton are saved to', args.temp_folder)
 
-    PredictionCheckpoint._max_size = 0.5
+    # PredictionCheckpoint._max_size = 0.5
 
     exp = SegmentationExperimentPipeline(
         log_base_path=args.log_folder,

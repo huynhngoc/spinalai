@@ -71,7 +71,7 @@ if __name__ == '__main__':
     ex.run_external(
         args.dataset_file
     ).apply_post_processors(
-        recipe='auto',
+        recipe='2d',
         analysis_base_path=analysis_folder,
         map_meta_data=meta,
         run_test=True,

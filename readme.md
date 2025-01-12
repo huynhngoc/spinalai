@@ -14,6 +14,19 @@ For example
 ```
 sbatch slurm_build_singularity.sh deoxys.sif Singularity
 ```
+You can build your own singularity file with additional library by updating the `Singularity` file. Remember to keep an backup of the original `deoxys.sif`.
+
+
+# Running an interactive python session
+After logging into Orion,
+```
+qlogin --constraint=avx2 --mem=16G
+singularity exec --nv deoxys.sif ipython
+```
+Use this to test your code before committing on your local PC.
+Remember to `exit` the session (twice) after you finish.
+Note that a `qlogin` session will stop automatically after a while.
+
 
 # Running a python file
 ```

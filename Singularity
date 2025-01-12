@@ -6,13 +6,14 @@ Stage: build
     pip install ipython
     pip install tensorflow-addons
     pip install matplotlib==3.3.4
+    pip install googleapis-common-protos==1.63.0
+    pip install ray==2.9.3
     pip install https://github.com/huynhngoc/deoxys-image/archive/master.zip
     pip install https://github.com/huynhngoc/deoxys/archive/master.zip
     pip install scikit-image
     pip install scikit-learn
     pip install mypy
     pip install nptyping
-    pip install ray==2.9.3
     pip install elasticdeform
     pip install lifelines
     pip install scikit-survival

@@ -70,10 +70,9 @@ if __name__ == '__main__':
         analysis_base_path=analysis_folder,
         map_meta_data=meta,
         metrics=['f1_score', 'precision', 'recall']
-    ).plot_performance().plot_prediction(
-        masked_images=[], best_num=2, worst_num=2
-    ).load_best_model(monitor=args.monitor
-                      ).run_test(
+    ).plot_performance().load_best_model(
+        monitor=args.monitor
+    ).run_test(
     ).apply_post_processors(
         recipe='2d',
         analysis_base_path=analysis_folder,

@@ -60,13 +60,13 @@ if __name__ == '__main__':
         temp_base_path=args.temp_folder
     ).from_full_config(
         args.config_file
-    ).run_experiment(
-        train_history_log=True,
-        model_checkpoint_period=args.model_checkpoint_period,
-        prediction_checkpoint_period=args.prediction_checkpoint_period,
-        epochs=args.epochs,
+    # ).run_experiment(
+    #     train_history_log=True,
+    #     model_checkpoint_period=args.model_checkpoint_period,
+    #     prediction_checkpoint_period=args.prediction_checkpoint_period,
+    #     epochs=args.epochs,
     ).apply_post_processors(
-        recipe='auto',
+        recipe='2d',
         analysis_base_path=analysis_folder,
         map_meta_data=meta,
         metrics=['f1_score', 'precision', 'recall']
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     ).load_best_model(monitor=args.monitor
                       ).run_test(
     ).apply_post_processors(
-        recipe='auto',
+        recipe='2d',
         analysis_base_path=analysis_folder,
         map_meta_data=meta,
         run_test=True,

@@ -60,11 +60,11 @@ if __name__ == '__main__':
         temp_base_path=args.temp_folder
     ).from_full_config(
         args.config_file
-    # ).run_experiment(
-    #     train_history_log=True,
-    #     model_checkpoint_period=args.model_checkpoint_period,
-    #     prediction_checkpoint_period=args.prediction_checkpoint_period,
-    #     epochs=args.epochs,
+    ).run_experiment(
+        train_history_log=True,
+        model_checkpoint_period=args.model_checkpoint_period,
+        prediction_checkpoint_period=args.prediction_checkpoint_period,
+        epochs=args.epochs,
     ).apply_post_processors(
         recipe='2d',
         analysis_base_path=analysis_folder,

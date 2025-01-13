@@ -6,7 +6,7 @@
 #SBATCH --partition=gpu        # Use the GPU partition
 #SBATCH --gres=gpu:1       # Request 1 GPU "generic resource"
 #SBATCH --cpus-per-task=16
-#SBATCH --mail-user=$USER@nmbu.no # Email me when job is done.
+#SBATCH --mail-user=esther.maud.zijerveld@nmbu.no # Email me when job is done.
 #SBATCH --mail-type=ALL
 #SBATCH --output=outputs/unet-%A.out
 #SBATCH --error=outputs/unet-%A.out

@@ -27,6 +27,10 @@ Use this to test your code before committing on your local PC.
 Remember to `exit` the session (twice) after you finish.
 Note that a `qlogin` session will stop automatically after a while.
 
+```
+qlogin --partition gpu --gres gpu:1 --mem 16G
+```
+
 
 # Running a python file
 ```

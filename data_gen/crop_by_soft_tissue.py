@@ -26,6 +26,7 @@ if __name__ == '__main__':
     output_dir = '../cropped_nifti_by_soft_tissue_window'
     window_center = 400
     window_width = 1800
+    # window number based on https://radiopaedia.org/articles/windowing-ct
 
     # Ensure the output directory exists
     os.makedirs(output_dir, exist_ok=True)

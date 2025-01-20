@@ -24,10 +24,10 @@
                 2
             ],
             "val_folds": [
-                0
+                1
             ],
             "test_folds": [
-                1
+                0
             ],
             "preprocessors": [
                 {

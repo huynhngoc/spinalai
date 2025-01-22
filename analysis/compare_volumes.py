@@ -15,7 +15,7 @@ def polygon_area(points):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('name', type=str, required=True)
+    parser.add_argument('name', type=str)
     experiment_name = parser.parse_args().name
 
     # preparing the data`

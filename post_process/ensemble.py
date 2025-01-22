@@ -53,7 +53,7 @@ def recall(y_true, y_pred, threshold=0.5):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('name', type=str, required=True)
+    parser.add_argument('name', type=str)
     experiment_name = parser.parse_args().name
     # experiment_name = 'soft_tissue_lr001_{folds}'
 

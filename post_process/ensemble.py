@@ -96,7 +96,7 @@ if __name__ == '__main__':
                 group = f['predicted']
                 for pid in group.keys():
                     predicted = group[pid][:]
-                    if not ensemble_prediction.get(pid):
+                    if ensemble_prediction.get(pid, None) is None:
                         ensemble_prediction[pid] = predicted
                         targets[pid] = f['y'][pid][:]
                     else:

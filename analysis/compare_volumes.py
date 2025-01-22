@@ -79,4 +79,20 @@ if __name__ == '__main__':
         experiment_df = pd.DataFrame(experiment_info, columns=['pid', 'segmented_voxels']).set_index('pid')
         experiment_df = experiment_df.join(df).join(perf_info)
         experiment_df['segmented_volume'] = experiment_df['segmented_voxels'] * experiment_df['voxel_size']
-        experiment_df.to_csv(os.path.join(output_folder, f'{fold}_single_results.csv'))
+        experiment_df.to_csv(os.path.join(output_folder, f'{fold}_results.csv'))
+
+    print('calculating the results from ensemble...')
+    ensemble_info = []
+    log_folder = '../perf/' + experiment_name.format(folds='all')
+    perf_info = pd.read_csv(log_folder + '/result.csv', index_col='pid')
+    test_file = log_folder + '/predictions.h5'
+    with h5py.File(test_file, 'r') as f:
+        group = f['predicted']
+        for pid in group.keys():
+            predicted = group[str(pid)][:][..., 0]
+            segmented_voxels = np.sum(predicted > 0.5)
+            ensemble_info.append([int(pid), segmented_voxels])
+    ensemble_df = pd.DataFrame(ensemble_info, columns=['pid', 'segmented_voxels']).set_index('pid')
+    ensemble_df = ensemble_df.join(df).join(perf_info)
+    ensemble_df['segmented_volume'] = ensemble_df['segmented_voxels'] * ensemble_df['voxel_size']
+    ensemble_df.to_csv(os.path.join(output_folder, 'ensemble_results.csv'))

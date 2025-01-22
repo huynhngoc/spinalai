@@ -17,4 +17,4 @@
 module load singularity
 
 
-singularity exec --nv deoxys.sif python $1 ${@:2}
+singularity exec --bind $(pwd):/mnt --nv deoxys.sif python $1 ${@:2}

@@ -106,7 +106,7 @@ if __name__ == '__main__':
             for pid in targets.keys():
                 pred = np.mean(ensemble_prediction[pid], axis=-1)
                 f['predicted'].create_dataset(pid, data=pred)
-                f['y'].create_dataset(pid, data=targets)
+                f['y'].create_dataset(pid, data=targets[pid])
                 ensemble_info.append([pid, f1_score(targets[pid], pred), precision(targets[pid], pred), recall(targets[pid], pred)])
 
     df = pd.DataFrame(ensemble_info, columns=['pid', 'f1', 'precision', 'recall'])

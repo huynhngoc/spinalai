@@ -64,6 +64,25 @@ This script takes 4 arguments (parameters):
 
 Actually, the last two arguments are set to 512 by default, so you can skip them.
 
+### Running the ensemble script
+```
+sbatch slurm_run_python_file.sh post_process/ensemble.py soft_tissue_lr001_{folds}
+```
+This script will ensemble posible results from the experiment with the prefix `soft_tissue_lr001_` and save the ensemble results in `../perf/soft_tissue_lr001_all`.
+
+To run this script for other experiment, simply replace `soft_tissue_lr001_{folds}` with the corresponding names.
+For example, replace it with `soft_tissue_lr001_{folds}_narrow_window`
+
+### Running the result analysis script
+```
+sbatch slurm_run_python_file.sh analysis/compare_volumes.py soft_tissue_lr001_{folds}
+```
+This script will calculate the total 3D volumes created by the CNN models and save them in `../analysis_results/soft_tissue_lr001_all`.
+
+To run this script for other experiment, simply replace `soft_tissue_lr001_{folds}` with the corresponding names.
+For example, replace it with `soft_tissue_lr001_{folds}_narrow_window`
+
+
 # Running the experiment
 
 ## Running the experiment locally

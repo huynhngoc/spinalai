@@ -24,10 +24,10 @@
                 1
             ],
             "val_folds": [
-                0
+                2
             ],
             "test_folds": [
-                2
+                0
             ],
             "preprocessors": [
                 {
@@ -93,7 +93,7 @@
         "optimizer": {
             "class_name": "adam",
             "config": {
-                "learning_rate": 0.0001
+                "learning_rate": 0.0005
             }
         },
         "metrics": [

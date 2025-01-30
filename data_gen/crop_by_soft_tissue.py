@@ -4,6 +4,7 @@ import os
 
 
 def window_image(image, window_center, window_width):
+    # Scaling the image intensity values to be within the range defined by window_center and window_width
     img_min = window_center - window_width // 2
     img_max = window_center + window_width // 2
     windowed_image = np.clip(image, img_min, img_max)
@@ -11,8 +12,10 @@ def window_image(image, window_center, window_width):
 
 
 def crop_to_soft_tissue(image, window_center, window_width):
+    # Crop the image to the soft tissue
     windowed_image = window_image(
         sitk.GetArrayFromImage(image), window_center, window_width)
+    # Find the minimum and maximum coordinates of the non-zero values
     non_zero_coords = np.argwhere(
         windowed_image > window_center - window_width // 2)
     min_coords = np.min(non_zero_coords, axis=0)

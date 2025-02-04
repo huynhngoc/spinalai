@@ -77,7 +77,7 @@ For example, replace it with `soft_tissue_lr001_{folds}_narrow_window`
 ```
 sbatch slurm_run_python_file.sh analysis/compare_volumes.py soft_tissue_lr001_{folds}
 ```
-This script will calculate the total 3D volumes created by the CNN models and save them in `../analysis_results/soft_tissue_lr001_all`.
+This script will calculate the total 3D volumes created by the CNN models and save them in `../analysis_results/soft_tissue_lr001_all`. NOTE: The ensemble script must be run first before this analysis script is run.
 
 To run this script for other experiment, simply replace `soft_tissue_lr001_{folds}` with the corresponding names.
 For example, replace it with `soft_tissue_lr001_{folds}_narrow_window`

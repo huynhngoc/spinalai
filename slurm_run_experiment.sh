@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:1       # Request 1 GPU "generic resource"
 #SBATCH --cpus-per-task=16
 #SBATCH --mail-user=esther.maud.zijerveld@nmbu.no # Email me when job is done.
-#SBATCH --mail-type=ALL
+#SBATCH --mail-type=FAIL
 #SBATCH --output=outputs/unet-%A.out
 #SBATCH --error=outputs/unet-%A.out
 

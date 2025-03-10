@@ -7,6 +7,7 @@ from deoxys.experiment.postprocessor import DefaultPostProcessor
 # import tensorflow_addons as tfa
 from deoxys.model.losses import Loss, loss_from_config
 from deoxys.customize import custom_loss, custom_preprocessor
+from deoxys.data import BasePreprocessor
 import os
 
 

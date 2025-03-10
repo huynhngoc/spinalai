@@ -6,8 +6,20 @@ from deoxys.experiment.postprocessor import DefaultPostProcessor
 # from tensorflow.python.ops.gen_math_ops import square
 # import tensorflow_addons as tfa
 from deoxys.model.losses import Loss, loss_from_config
-from deoxys.customize import custom_loss
+from deoxys.customize import custom_loss, custom_preprocessor
 import os
+
+
+@custom_preprocessor
+class ChannelRepeater(BasePreprocessor):
+    def __init__(self, channel=0):
+        if '__iter__' not in dir(channel):
+            self.channel = [channel]
+        else:
+            self.channel = channel
+
+    def transform(self, images, targets):
+        return np.concatenate([images, images[..., self.channel]], axis=-1), targets
 
 
 @custom_loss

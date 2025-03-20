@@ -41,8 +41,8 @@
                 {
                     "class_name": "ImageNormalizerPreprocessor",
                     "config": {
-                        "vmin": -900,
-                        "vmax": 900
+                        "vmin": -125,
+                        "vmax": 125
                     }
                 }
             ],

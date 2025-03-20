@@ -33,7 +33,7 @@
                 {
                     "class_name": "WindowingPreprocessor",
                     "config": {
-                        "window_center": 400,
+                        "window_center": 50,
                         "window_width": 250,
                         "channel": 0
                     }

@@ -19,6 +19,6 @@ if __name__ == '__main__':
             original_y, original_x = list(sitk_image.GetSize())[:2]
             image = sitk.GetImageFromArray(f['predicted'][key][:, :original_x, :original_y])
             image.CopyInformation(sitk_image)
-            output_roi_nifti_file = f'{nifti_path}/{key}_{folder_name.replace("_all", "")}_pred.nii.gz'
+            output_roi_nifti_file = f'{nifti_path}/{key}/{folder_name.replace("_all", "")}_pred.nii.gz'
             sitk.WriteImage(image, output_roi_nifti_file)
             print(f'{key} done')

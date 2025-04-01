@@ -16,7 +16,8 @@ if __name__ == '__main__':
         for key in f['predicted'].keys():
             print('Processing', key)
             sitk_image = sitk.ReadImage(f'{nifti_path}/{key}/roi.nii.gz')
-            image = sitk.GetImageFromArray(f['predicted'][key][:])
+            original_y, original_x = list(sitk_image.GetDimension())[:2]
+            image = sitk.GetImageFromArray(f['predicted'][key][:, :original_x, :original_y])
             image.CopyInformation(sitk_image)
             output_roi_nifti_file = f'{nifti_path}/{key}_{folder_name.replace("_all", "")}_pred.nii.gz'
             sitk.WriteImage(output_roi_nifti_file, output_roi_nifti_file)

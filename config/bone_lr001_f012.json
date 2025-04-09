@@ -24,25 +24,25 @@
                 0
             ],
             "val_folds": [
-                2
+                1
             ],
             "test_folds": [
-                1
+                2
             ],
             "preprocessors": [
                 {
                     "class_name": "WindowingPreprocessor",
                     "config": {
-                        "window_center": 50,
-                        "window_width": 250,
+                        "window_center": 400,
+                        "window_width": 1800,
                         "channel": 0
                     }
                 },
                 {
                     "class_name": "ImageNormalizerPreprocessor",
                     "config": {
-                        "vmin": -125,
-                        "vmax": 125
+                        "vmin": -900,
+                        "vmax": 900
                     }
                 }
             ],

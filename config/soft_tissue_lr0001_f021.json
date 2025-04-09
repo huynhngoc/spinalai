@@ -33,16 +33,16 @@
                 {
                     "class_name": "WindowingPreprocessor",
                     "config": {
-                        "window_center": 400,
-                        "window_width": 1800,
+                        "window_center": 50,
+                        "window_width": 250,
                         "channel": 0
                     }
                 },
                 {
                     "class_name": "ImageNormalizerPreprocessor",
                     "config": {
-                        "vmin": -900,
-                        "vmax": 900
+                        "vmin": -125,
+                        "vmax": 125
                     }
                 }
             ],

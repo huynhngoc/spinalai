@@ -96,14 +96,14 @@ if __name__ == '__main__':
             for pid in group.keys():
                 predicted = group[pid][:]
                 if ensemble_prediction.get(pid, None) is None:
-                    ensemble_prediction[pid] = predicted
+                    ensemble_prediction[pid] = [predicted]
                     targets[pid] = f['y'][pid][:]
                 else:
-                    ensemble_prediction[pid] = np.stack([ensemble_prediction[pid], predicted], axis=-1)
+                    ensemble_prediction[pid].append(predicted)
 
     with h5py.File(output_h5_file, 'a') as f:
         for pid in targets.keys():
-            pred = np.mean(ensemble_prediction[pid], axis=-1)
+            pred = np.mean(ensemble_prediction[pid], axis=0)
             f['predicted'].create_dataset(pid, data=pred)
             f['y'].create_dataset(pid, data=targets[pid])
             print('calculating metrics')

@@ -57,7 +57,7 @@ if __name__ == '__main__':
         try:
             ex = ex.load_best_model(
                 monitor=args.monitor,
-                recipe='auto',
+                recipe='2d',
                 analysis_base_path=analysis_folder,
                 map_meta_data=meta,
             )

@@ -1,9 +1,8 @@
 {
     "config": {
-        "filename": "/path/to/new/file.h5",
+        "filename": "../datasets/spinal_wide_window_cropped_external.h5",
         "test_folds": [
-            0,
-            1
+            0
         ]
     }
 }

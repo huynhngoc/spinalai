@@ -16,7 +16,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("dataset_file")
     parser.add_argument("log_folder")
-    parser.add_argument("--best_epoch", default=5, type=int)
+    parser.add_argument("--best_epoch", default=0, type=int)
     parser.add_argument("--temp_folder", default='', type=str)
     parser.add_argument("--analysis_folder",
                         default='', type=str)
@@ -53,21 +53,26 @@ if __name__ == '__main__':
         temp_base_path=args.temp_folder + '_' +
         args.dataset_file[:-5].split('/')[-1]
     )
-    if args.best_epoch == 0:
-        try:
-            ex = ex.load_best_model(
-                monitor=args.monitor,
-                recipe='2d',
-                analysis_base_path=analysis_folder,
-                map_meta_data=meta,
-            )
-        except Exception as e:
-            print("Error while loading best model", e)
-            print(e)
-    else:
-        print(f'Loading model from epoch {args.best_epoch}')
-        ex.from_file(args.log_folder +
-                     f'/model/model.{args.best_epoch:03d}.h5')
+    # if args.best_epoch == 0:
+    #     try:
+    #         ex = ex.load_best_model(
+    #             monitor=args.monitor,
+    #             recipe='2d',
+    #             analysis_base_path=analysis_folder,
+    #             map_meta_data=meta,
+    #         )
+    #     except Exception as e:
+    #         print("Error while loading best model", e)
+    #         print(e)
+    # else:
+    #     print(f'Loading model from epoch {args.best_epoch}')
+    #     ex.from_file(args.log_folder +
+    #                  f'/model/model.{args.best_epoch:03d}.h5')
+    with open(args.log_folder + '/info.txt', 'r') as f:
+        best_epoch = int(f.read()[-24:-21])
+    print(f'Loading model from epoch {best_epoch}')
+    ex.from_file(args.log_folder +
+                 f'/model/model.{best_epoch:03d}.h5')
     ex.run_external(
         args.dataset_file
     ).apply_post_processors(
